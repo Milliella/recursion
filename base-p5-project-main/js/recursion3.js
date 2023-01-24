@@ -34,26 +34,20 @@ function branch(len) { //length of branch to draw
             let g = 100 + random(-20, 20);
             let b = 40 + random(-20, 20);
             fill(r, g, b, 100); // add (,100) makes it transparent
-            let size = 15 + random(15);
+           
             //noStroke();
             strokeWeight(1); //size of outline around shapes 
             //triangle(-size/2, 0, size/2, 0, 0, -size); //the three ponits for the triangle, bottom left, middle, bottom right
-            beginShape();
-            let radius = random(10, 90); //general size of "leef" shape, how big the shape is, random number between the two values 
-            for (let i = 1; i < 350; i++) { //controls fancy shape of leaves (360 making a whole circle ect)
-                let x = radius * cos(i);
-                let y = radius * sin(i);
-                vertex(x, y);
-
+            if(random(1)> 0.95){
+                for (let i = 0; i < 360; i += 36) {
+                    let size = random(15, 100);
+                    ellipse(cos(i) * size, sin(i) * size, size);
+    
+                }
             }
-            for (let i = 1; i > 3; i--) {
-                let x = radius * cos(i);
-                let y = radius * sin(-i);
-                vertex(x, y);
-            }
-            endShape(CLOSE);
-
-        } else {
+           
+        }
+        else {
             //branch 1
             push(); //PUSH + POP = saves the current drawing contex, rotateing the drawing then re-rotating it to get the desired look 
             rotate(random(-maxAngle, maxAngle));
@@ -85,10 +79,10 @@ function branch(len) { //length of branch to draw
             branch(len * 0.2);
             pop();
         }
-        }
-
-
     }
+
+
+}
 
 
 
