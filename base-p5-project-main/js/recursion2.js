@@ -1,4 +1,4 @@
-let brown1, brown2;
+let brown1, brown2, slider;
 function setup() {
     createCanvas(windowWidth, windowHeight);
     angleMode(DEGREES);
@@ -6,16 +6,22 @@ function setup() {
     strokeJoin(ROUND);
     brown1 = color('#50331B');
     brown2 = color('#b6855c');
+    slider = createSlider(10, 90, 45);
+    //angle slider controls 
+    slider.position(10, 10);
+    slider.style("width", "200px");
+    slider.input(draw);
 
 }
 
 function draw() {
     background(220);
+    resetMatrix(); //re-sets the functions each time the slider is moved
     translate(width / 2, height);
     branch(450); //branch or tree height, you need to change it in the stroke weight map as well, the higher the starting number the larger the tree, the lsrger number of branches you have the more recursion is going to happen, the lower the amount that you times it by then the shorter its going to be
 }
 function branch(len) { //length of branch to draw
-    let maxAngle = 45;
+    let maxAngle = slider.value(); //smaller angles at the left hand side, larger max angle at right hand side, the max angle is dependednt on the position of the slieer and its corresponding value
     strokeWeight(map(len, 20, 450, 1, 10));
     stroke(lerpColor(brown1, brown2, random(0.4, 0.6))); //random mix point vairation, lerp = one value and another, having a random value between them you're finding a random mix point for the colours 
     line(0, 0, 0, -len);
