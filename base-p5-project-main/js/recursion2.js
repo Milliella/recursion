@@ -12,7 +12,7 @@ function setup() {
 function draw() {
     background(220);
     translate(width / 2, height);
-    branch(450); //branch or tree height, you need to change it in the stroke weight map as well
+    branch(450); //branch or tree height, you need to change it in the stroke weight map as well, the higher the starting number the larger the tree, the lsrger number of branches you have the more recursion is going to happen, the lower the amount that you times it by then the shorter its going to be
 }
 function branch(len) { //length of branch to draw
     let maxAngle = 45;
