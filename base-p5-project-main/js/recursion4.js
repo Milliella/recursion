@@ -35,9 +35,9 @@ function branch(len) { //length of branch to draw
             fill(r,g,b, 70); // add (,100) makes it transparent
             //noStroke();
             strokeWeight(0.4);
-            let radius = random (5, 20); //size of flowers - makes all the circles that theyre made of bigger - randomises the sizes of the different flowers so thered variation
+            let radius = random (5, 20); //size of flowers - makes all the circles that theyre made of bigger - randomises the sizes of the different flowers so theres variation
             if (random(1) > 0.5) {
-                for (let i = 0; i < 360; i += 40) { //360= circle 40= position of circles areound radius of the inner circle that theyre sitting on
+                for (let i = 0; i < 360; i += 40) { //360= circle 40= position of circles around radius of the inner circle that theyre sitting on
                     let size = random(15, 20);
                     ellipse(cos(i) * radius, sin(i) * radius, radius * 2); //size of circle and size of radius
 
@@ -62,7 +62,7 @@ function branch(len) { //length of branch to draw
             pop();
             push(); //PUSH + POP = saves the current drawing contex, rotateing the drawing then re-rotating it to get the desired look 
             rotate(random(-maxAngle, maxAngle));
-            branch(len * 0.5);
+            branch(len * 0.2);
             pop();
             //branch 2
             push();
